@@ -100,6 +100,7 @@ const data = [
 ];
 
 const articles = document.querySelector('.articles');
+
 function createArt(title, date, firstParagraph, secondParagraph, thirdParagraph) {
 
 // Create Elem  

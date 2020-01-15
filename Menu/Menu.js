@@ -8,6 +8,25 @@ let menuItems = [
   'Music',
   'Log Out'
 ];
+const head = document.querySelector('head');
+function navigation(menuObj){
+  const menuDiv = document.createElement('div');
+  const newUl = document.createElement('ul');
+
+
+  const listItem = document.createElement('li');
+  //itteration
+  menuObj.forEach(el => {
+    listItem.textContent = el;
+    newUl.append(listItem)
+  });
+
+return navigation;
+}
+
+menuItems.map((menuBox) => {
+  return menuBox.append(navigation(menuItems[0],menuItems[1],menuItems[2],menuItems[3],menuItems[4],menuItems[5]))
+})
 
 /* 
 
