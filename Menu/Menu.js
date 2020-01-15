@@ -8,24 +8,35 @@ let menuItems = [
   'Music',
   'Log Out'
 ];
-const head = document.querySelector('head');
-function navigation(menuObj){
+// const head = document.querySelector('head');
+
+// const navButton = document.querySelector('.menu-button');
+
+//Step 1 - function
+function createMenu(){
   const menuDiv = document.createElement('div');
-  const newUl = document.createElement('ul');
-
-
-  const listItem = document.createElement('li');
-  //itteration
-  menuObj.forEach(el => {
-    listItem.textContent = el;
-    newUl.append(listItem)
-  });
-
-return navigation;
+  const unol = document.createElement('ul');
+//Step 2 - iteration
+  menuItems.forEach(item => {
+  let listItem = document.createElement('li');
+  listItem.textContent = item
+  unol.append(listItem);
+  })
+  //append
+  menuDiv.append(unol);
+  //class
+  menuDiv.classList.add('menu');
+//Step 4 - menu event listener
+  const menuBtn = document.querySelector('.menu-button');
+  menuBtn.addEventListener('click', () => {
+    menuDiv.classList.toggle('menu--open');
+  })
+  return menuDiv;
 }
-
-menuItems.map((menuBox) => {
-  return menuBox.append(navigation(menuItems[0],menuItems[1],menuItems[2],menuItems[3],menuItems[4],menuItems[5]))
+//Step 6
+const header = document.querySelector('.header');
+menuItems.forEach(item => {
+header.append(createMenu())
 })
 
 /* 
