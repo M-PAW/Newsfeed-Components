@@ -85,8 +85,65 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+
+  {
+    title: 'Bacon is Delicious!',
+    date: 'Jan 15th, 2020',
+    firstParagraph: `Bacon Bacon Baccoonn! Baconn Baconnn Bacon? Bacon Baccoonn! Baconn Baconnn Bacon Baccoonn! Baconn Baconnn Bacon Baccoonn! Baconn Baconnn Bacon Baccoonn! Baconn Baconnn Bacon Baccoonn! Baconn Baconnn!`,
+
+    secondParagraph: `Bacon Bacon Baccoonn! Baconn Baconnn Bacon? Bacon Baccoonn! Baconn Baconnn Bacon Baccoonn! Baconn Baconnn Bacon Baccoonn! Baconnn Bacon Baccoonn! Baconn Baconnn Baconnn Bacon Baccoonn! Baconn Baconnn Bacon Baccoonn! Bacon Baccoonn! Baconn Baconnn Bacon Baccoonn! Baconn Baconnn Bacon Baccoonn! Baconn Baconnn.`,
+
+    thirdParagraph: `Bacon Bacon Baccoonn! Baconn Baconnn Bacon? Bacon Baccoonn! Baconn Baconnn Bacon Baccoonn! Baconn Baconnn Bacon Baccoonn! Baconnn Bacon Baccoonn! Baconn Baconnn Baconnn Bacon Baccoonn! Baconn Baconnn Bacon Baccoonn! Bacon Baccoonn! Baconn Baconnn Bacon Baccoonn! Baconn Baconnn Bacon Baccoonn! Baconn Baconnn Baconnn Bacon Baccoonn! Baconn Baconnn Bacon Baccoonn! Baconnn Bacon Baccoonn! Baconn Baconnn Baconnn Bacon Baccoonn! Baconn Baconnn Bacon Baccoonn! Bacon Baccoonn!`
   }
+  
 ];
+
+const articles = document.querySelector('.articles');
+
+function createArt(title, date, firstParagraph, secondParagraph, thirdParagraph) {
+
+// Create Elem  
+const article = document.createElement('div');
+const h2 = document.createElement('h2');
+const pDate = document.createElement('p');
+const p1 = document.createElement('p');
+const p2 = document.createElement('p');
+const p3 = document.createElement('p');
+const expandButton = document.createElement('span');
+
+// Apend 
+article.append(h2);
+article.append(pDate);
+article.append(p1);
+article.append(p2);
+article.append(p3);
+article.append(expandButton);
+
+// Add classes
+article.classList.add('article');
+pDate.classList.add('date');
+expandButton.classList.add('expandButton');
+
+// Assign Values
+h2.textContent = title;
+pDate.textContent = date;
+p1.textContent = firstParagraph;
+p2.textContent = secondParagraph;
+p3.textContent = thirdParagraph;
+
+// Toggle Button
+expandButton.textContent = 'Click to Expand';
+expandButton.addEventListener('click', (e) => {
+  article.classList.toggle('article-open')
+})
+return article;
+}
+
+// Call Funtion on JSON Obj
+data.map((article) => {
+  return articles.append(createArt(article.title, article.date, article.firstParagraph, article.secondParagraph, article.thirdParagraph))
+})
 
 /* Step 1: Create a function that creates a component. You will want your component to look like the template below: 
   

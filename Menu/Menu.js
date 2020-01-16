@@ -8,6 +8,37 @@ let menuItems = [
   'Music',
   'Log Out'
 ];
+// const head = document.querySelector('head');
+
+// const navButton = document.querySelector('.menu-button');
+
+const header = document.querySelector('.header');
+header.appendChild(createMenu(menuItems));
+
+//Step 1 - function
+function createMenu(menuObj){
+  const menuDiv = document.createElement('div');
+  const newUl = document.createElement('ul');
+//Step 2 - iteration
+  menuObj.forEach(item => {
+  let listItem = document.createElement('li');
+  listItem.textContent = item
+  newUl.append(listItem);
+  })
+  //append
+  menuDiv.append(newUl);
+  //class
+  menuDiv.classList.add('menu');
+//Step 4 - menu event listener
+  const menuBtn = document.querySelector('.menu-button');
+  menuBtn.addEventListener('click', () => {
+    menuDiv.classList.toggle('menu--open');
+  })
+  //step 5 - return
+  return menuDiv;
+}
+//Step 6 - call with forEach
+
 
 /* 
 
